@@ -1,0 +1,29 @@
+.menu{
+  background-color: var(--primary);
+  height: 45px;
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+}
+
+.menu ul{
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding-inline-start: 0px;
+  margin: 0;
+  padding-top: 9px;
+}
+
+.menu ul a{
+  text-decoration: none;
+  color: var(--brown);
+}
+
+.menu-active{
+  color: var(--secondary);
+}
+
+.menu ul figure{
+  margin: 0;
+}

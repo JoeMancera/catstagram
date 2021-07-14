@@ -1,0 +1,29 @@
+.card_vote figure{
+  display: inline-block;
+  position: relative;
+}
+.cat_image{
+  width: 349px;
+  height: 250px;
+  background-color: var(--secondary);
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  object-fit: cover;
+  object-position: 50% 55%;
+}
+
+.card_vote_actions{
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+}
+
+.btn-card{
+  background-color: transparent;
+  border: none;
+}
+
+.btn-card:hover{
+  filter: brightness(0.8);
+}
