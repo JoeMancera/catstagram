@@ -10,7 +10,7 @@ const API_KEY = env.CATS_API_KEY;
 const NUMBERS_OF_CATS = env.CATS_DAY_NUM;
 
 const Home = () => {
-  const [catsOfTheDay, setCatsOfTheDay] = useState({ results: [] });
+  const [catsOfTheDay, setCatsOfTheDay] = useState([]);
 
   useEffect(() => {
     fetch(`${API}/images/search?limit=${NUMBERS_OF_CATS}`, {
