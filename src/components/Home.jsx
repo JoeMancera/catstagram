@@ -7,25 +7,26 @@ import '../assets/styles/App.css';
 
 const API = env.CATS_API_URL;
 const API_KEY = env.CATS_API_KEY;
+const NUMBERS_OF_CATS = env.CATS_DAY_NUM;
 
 const Home = () => {
-  const [cats, setCats] = useState({ results: [] });
+  const [catsOfTheDay, setCatsOfTheDay] = useState({ results: [] });
 
   useEffect(() => {
-    fetch(`${API}/images/search?limit=2`, {
+    fetch(`${API}/images/search?limit=${NUMBERS_OF_CATS}`, {
       method: 'GET',
       headers: {
         'x-api-key': API_KEY,
       },
     })
       .then((response) => response.json())
-      .then((data) => setCats(data))
+      .then((data) => setCatsOfTheDay(data))
       .catch((err) => console.log('Error:', err));
   }, []);
 
   return (
     <Section title='Cats of the day'>
-      {cats.length > 0 ? cats.map((cat) => <CardVote key={cat.id} cat={cat} />) : null }
+      {catsOfTheDay.length > 0 ? catsOfTheDay.map((cat) => <CardVote key={cat.id} cat={cat} />) : null }
     </Section>
   );
 };
