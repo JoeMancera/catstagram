@@ -12,14 +12,20 @@ const Home = () => {
   const [cats, setCats] = useState({ results: [] });
 
   useEffect(() => {
-    fetch('https://rickandmortyapi.com/api/character')
+    fetch(`${API}/images/search?limit=2`, {
+      method: 'GET',
+      headers: {
+        'x-api-key': API_KEY,
+      },
+    })
       .then((response) => response.json())
-      .then((data) => setCats(data));
+      .then((data) => setCats(data))
+      .catch((err) => console.log('Error:', err));
   }, []);
 
   return (
     <Section title='Cats of the day'>
-      { cats.results.map((item) => <CardVote key={item.id} urlImage={item.image} />)}
+      {cats.length > 0 ? cats.map((cat) => <CardVote key={cat.id} cat={cat} />) : null }
     </Section>
   );
 };

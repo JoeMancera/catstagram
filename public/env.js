@@ -50,6 +50,6 @@ window.env = {
   "npm_node_execpath": "/usr/local/bin/node",
   "npm_config_prefix": "/usr/local",
   "COLORTERM": "truecolor",
-  "API_URL": "https://api.thecatapi.com/v1",
+  "CATS_API_URL": "https://api.thecatapi.com/v1",
   "CATS_API_KEY": "94c623d1-acea-4ca1-bc1e-daa53f5b10c5"
 };
