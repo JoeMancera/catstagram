@@ -1,25 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 import Header from '../components/Header';
-import Section from '../components/Sections';
-import CardVote from '../components/CardVote';
 import '../assets/styles/App.css';
 
 const App = () => {
-  const [cats, setCats] = useState({ results: [] });
-
-  useEffect(() => {
-    fetch('https://rickandmortyapi.com/api/character')
-      .then((response) => response.json())
-      .then((data) => setCats(data));
-  }, []);
-
   return (
     <div>
       <Header />
-      <main>
-        <Section title='Cats of the day'>
-          { cats.results.map((item) => <CardVote urlImage={item.image} />)}
-        </Section>
+      <main className='main'>
+        <Switch>
+          <Route exact path='/' component={home} />
+          <Route exact path='/search' component={search} />
+          <Route exact path='/favorites' component={favorite} />
+          <Route exact path='/profile' component={profile} />
+          <Route exact path='/onboard' component={onboard} />
+        </Switch>
       </main>
     </div>
   );
