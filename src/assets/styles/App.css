@@ -38,3 +38,22 @@ main{
     align-items: center;
     margin-bottom: 42px;
 }
+
+.btn{
+    font: var(--button);
+    height: 28px;
+    border-radius: 5px;
+}
+
+.btn-primary{
+    background: #F9CDCE;
+}
+
+a, .btn-link{
+    text-decoration: none;
+    color: var(--brown);
+}
+
+a:hover{
+    color: var(--primary);
+}

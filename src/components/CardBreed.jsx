@@ -32,10 +32,24 @@ const CardBreed = () => {
               <h3>{cat.breeds[0].name}</h3>
               <p>{cat.breeds[0].description}</p>
               <hr />
-              <p>{cat.breeds[0].temperament}</p>
-              <p>{cat.breeds[0].origin}</p>
-              <p>{cat.breeds[0].weight.metric}</p>
-              <p>{cat.breeds[0].life_span}</p>
+              <div className='breed_desciption-qualities'>
+                <p>{cat.breeds[0].temperament}</p>
+                <p>
+                  <strong>Origin:</strong>
+                  {cat.breeds[0].origin}
+                </p>
+                <p>
+                  <strong>Weight: </strong>
+                  {cat.breeds[0].weight.metric}
+                  Kg
+                </p>
+                <p>
+                  <strong>Life span: </strong>
+                  {cat.breeds[0].life_span}
+                  Years
+                </p>
+                <a className='btn btn-link' target='_blank' href={cat.breeds[0].wikipedia_url} rel='noreferrer'>Go to Wiki</a>
+              </div>
             </div>
           </figure>
         </div>
