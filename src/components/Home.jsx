@@ -8,7 +8,7 @@ const API = process.env.REACT_APP_CATS_API_URL;
 const API_KEY = process.env.REACT_APP_CATS_API_KEY;
 
 const Home = () => {
-  const [randomBreed, setRandomBreed] = useState('Aegean');
+  const [randomBreed, setRandomBreed] = useState('');
 
   useEffect(() => {
     fetch(`${API}/breeds`, {
@@ -30,7 +30,7 @@ const Home = () => {
         <CardVote />
       </Section>
       <Section key={1} title='Breed of the day'>
-        <CardBreed breed={randomBreed} />
+        <CardBreed key={0} breed={randomBreed} />
       </Section>
     </>
   );

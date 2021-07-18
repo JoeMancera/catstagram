@@ -4,14 +4,14 @@ import '../assets/styles/components/CardBreed.css';
 const API = process.env.REACT_APP_CATS_API_URL;
 const API_KEY = process.env.REACT_APP_CATS_API_KEY;
 
-const CardBreed = ({ breed = 'hima' }) => {
+const CardBreed = ({ breed }) => {
   const [breedOfTheDay, setBreedOfTheDay] = useState([]);
 
   console.log('the bread', breed);
   console.log('the bread info', breedOfTheDay);
 
   useEffect(() => {
-    fetch(`${API}/images/search?breed_id=${breed}`, {
+    fetch(`${API}/images/search?breed_id=sing`, {
       method: 'GET',
       headers: {
         'x-api-key': API_KEY,
