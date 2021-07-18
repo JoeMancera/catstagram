@@ -1,14 +1,12 @@
-/* eslint-disable import/no-unresolved */
 import React, { useState, useEffect } from 'react';
-import env from 'react-dotenv';
 import '../assets/styles/components/CardVote.css';
 import likeButton from '../assets/static/like-button.png';
 import dislikeButton from '../assets/static/dislike-button.png';
 import favoriteButton from '../assets/static/Fav-button.png';
 
-const API = env.CATS_API_URL;
-const API_KEY = env.CATS_API_KEY;
-const NUMBERS_OF_CATS = env.CATS_DAY_NUM;
+const API = process.env.REACT_APP_CATS_API_URL;
+const API_KEY = process.env.REACT_APP_CATS_API_KEY;
+const NUMBERS_OF_CATS = process.env.REACT_APP_CATS_DAY_NUM;
 
 const CardVote = () => {
 

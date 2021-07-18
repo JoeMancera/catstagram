@@ -1,17 +1,17 @@
-/* eslint-disable import/no-unresolved */
 import React, { useState, useEffect } from 'react';
-import env from 'react-dotenv';
 import '../assets/styles/components/CardBreed.css';
 
-const API = env.CATS_API_URL;
-const API_KEY = env.CATS_API_KEY;
+const API = process.env.REACT_APP_CATS_API_URL;
+const API_KEY = process.env.REACT_APP_CATS_API_KEY;
 
-const CardBreed = () => {
-
+const CardBreed = ({ breed = 'hima' }) => {
   const [breedOfTheDay, setBreedOfTheDay] = useState([]);
 
+  console.log('the bread', breed);
+  console.log('the bread info', breedOfTheDay);
+
   useEffect(() => {
-    fetch(`${API}/images/search?breed_id=abys`, {
+    fetch(`${API}/images/search?breed_id=${breed}`, {
       method: 'GET',
       headers: {
         'x-api-key': API_KEY,
@@ -35,7 +35,7 @@ const CardBreed = () => {
               <div className='breed_desciption-qualities'>
                 <p>{cat.breeds[0].temperament}</p>
                 <p>
-                  <strong>Origin:</strong>
+                  <strong>Origin: </strong>
                   {cat.breeds[0].origin}
                 </p>
                 <p>
