@@ -51,5 +51,6 @@ window.env = {
   "npm_config_prefix": "/usr/local",
   "COLORTERM": "truecolor",
   "CATS_API_URL": "https://api.thecatapi.com/v1",
-  "CATS_API_KEY": "94c623d1-acea-4ca1-bc1e-daa53f5b10c5"
+  "CATS_API_KEY": "94c623d1-acea-4ca1-bc1e-daa53f5b10c5",
+  "CATS_DAY_NUM": "1"
 };
