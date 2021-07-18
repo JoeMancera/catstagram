@@ -15,7 +15,7 @@
     --headline5: 400 24px/36px var(--font);
     --headline6: 400 20px/30px var(--font);
     
-    --body: 400 16px/24px var(--font);
+    --body: 200 16px/24px var(--font);
     --button: 400 18px/23px var(--font);
     --menu: 400 16px/20.8px var(--font);
     
@@ -36,4 +36,5 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 42px;
 }

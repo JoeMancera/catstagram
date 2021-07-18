@@ -1,6 +1,7 @@
 import React from 'react';
 import Section from './Sections';
 import CardVote from './CardVote';
+import CardBreed from './CardBreed';
 import '../assets/styles/App.css';
 
 const Home = () => {
@@ -10,7 +11,7 @@ const Home = () => {
         <CardVote />
       </Section>
       <Section key={1} title='Breed of the day'>
-        <CardVote />
+        <CardBreed />
       </Section>
     </>
   );

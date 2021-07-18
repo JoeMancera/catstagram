@@ -1,47 +1,41 @@
 /* eslint-disable import/no-unresolved */
 import React, { useState, useEffect } from 'react';
 import env from 'react-dotenv';
-import '../assets/styles/components/CardVote.css';
-import likeButton from '../assets/static/like-button.png';
-import dislikeButton from '../assets/static/dislike-button.png';
-import favoriteButton from '../assets/static/Fav-button.png';
+import '../assets/styles/components/CardBreed.css';
 
 const API = env.CATS_API_URL;
 const API_KEY = env.CATS_API_KEY;
-const NUMBERS_OF_CATS = env.CATS_DAY_NUM;
 
-const CardVote = () => {
+const CardBreed = () => {
 
-  const [catsOfTheDay, setCatsOfTheDay] = useState([]);
+  const [breedOfTheDay, setBreedOfTheDay] = useState([]);
 
   useEffect(() => {
-    fetch(`${API}/images/search?limit=${NUMBERS_OF_CATS}`, {
+    fetch(`${API}/images/search?breed_id=abys`, {
       method: 'GET',
       headers: {
         'x-api-key': API_KEY,
       },
     })
       .then((response) => response.json())
-      .then((data) => setCatsOfTheDay(data))
+      .then((data) => setBreedOfTheDay(data))
       .catch((err) => console.log('Error:', err));
   }, []);
 
-  { if (catsOfTheDay.length > 0) {
+  { if (breedOfTheDay.length > 0) {
     return (
-      catsOfTheDay.map((cat) => (
-        <div className='card_vote' key={cat.id}>
+      breedOfTheDay.map((cat) => (
+        <div className='card_Breed' key={cat.id}>
           <figure>
-            <img className='cat_image' src={cat.url} alt='Cat' srcSet='' />
-            <div className='card_vote_actions'>
-              <button type='button' className='btn-card'>
-                <img src={likeButton} alt='Like button' />
-              </button>
-              <button type='button' className='btn-card'>
-                <img src={dislikeButton} alt='Like button' />
-              </button>
-              <button type='button' className='btn-card'>
-                <img src={favoriteButton} alt='Like button' />
-              </button>
+            <img className='breed_image' src={cat.url} alt='Cat' srcSet='' />
+            <div className='breed_description'>
+              <h3>{cat.breeds[0].name}</h3>
+              <p>{cat.breeds[0].description}</p>
+              <hr />
+              <p>{cat.breeds[0].temperament}</p>
+              <p>{cat.breeds[0].origin}</p>
+              <p>{cat.breeds[0].weight.metric}</p>
+              <p>{cat.breeds[0].life_span}</p>
             </div>
           </figure>
         </div>
@@ -51,4 +45,4 @@ const CardVote = () => {
   }
 };
 
-export default CardVote;
+export default CardBreed;
