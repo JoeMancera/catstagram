@@ -1,11 +1,13 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import loginUser from '../utils/LoginUser';
 import Header from '../components/Header';
 import Home from '../components/Home';
 import Search from '../components/Search';
 import '../assets/styles/App.css';
 
 const App = () => {
+  loginUser;
   return (
     <div>
       <Header />

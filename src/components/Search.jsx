@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Section from './Sections';
+import SearchForm from './SearchForm';
 import CardSearch from './CardSearch';
-import '../assets/styles/App.css';
 
 const dummycats = [
   {
@@ -114,13 +114,36 @@ const dummycats = [
   },
 ];
 
+const API = process.env.REACT_APP_CATS_API_URL;
+const API_KEY = process.env.REACT_APP_CATS_API_KEY;
+
 const Search = () => {
+
+  const [category, setCategy] = useState('');
+  const [cats, setCats] = useState(dummycats);
+
+  const handleChangeCategory = (event) => {
+    setCategy(event.target.value);
+  };
+
+  const handlerClickSearchCategory = () => {
+    fetch(`${API}/images/search?limit=12&category_ids=${category}`, {
+      method: 'GET',
+      headers: {
+        'x-api-key': API_KEY,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => setCats(data))
+      .catch((err) => console.log('Error:', err));
+  };
 
   return (
     <>
       <Section key={0} title='Search your Cat'>
+        <SearchForm onChange={handleChangeCategory} onClick={handlerClickSearchCategory} />
         <div className='cat-result'>
-          {dummycats.length > 0 ? dummycats.map((cat) => <CardSearch cat={cat} key={cat.id} />) : null }
+          {cats.length > 0 ? cats.map((cat) => <CardSearch cat={cat} key={cat.id} />) : null }
         </div>
       </Section>
     </>

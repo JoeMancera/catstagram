@@ -1,0 +1,22 @@
+form{
+  display: flex;
+  justify-content: center;
+}
+
+.form-control{
+  height: 28px;
+  width: 200px;
+  border-radius: 5px;
+  border: 1px solid var(--secondary);
+  background-color: transparent;
+  margin: 0 5px;
+}
+
+.buttonSearch{
+  background-color: transparent;
+  border: none;
+}
+
+.buttonSearch:hover{
+  filter: brightness(0.8);
+}
