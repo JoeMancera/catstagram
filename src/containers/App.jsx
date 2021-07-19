@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Header from '../components/Header';
 import Home from '../components/Home';
+import Search from '../components/Search';
 import '../assets/styles/App.css';
 
 const App = () => {
@@ -11,8 +12,8 @@ const App = () => {
       <main className='main'>
         <Switch>
           <Route exact path='/' component={Home} />
-          {/* <Route exact path='/search' component={search} />
-          <Route exact path='/favorites' component={favorite} />
+          <Route path='/search' component={Search} />
+          {/* <Route exact path='/favorites' component={favorite} />
           <Route exact path='/profile' component={profile} />
           <Route exact path='/onboard' component={onboard} /> */}
         </Switch>
