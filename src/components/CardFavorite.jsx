@@ -2,6 +2,7 @@ import React from 'react';
 import removeFavoriteButton from '../assets/static/remove-button.png';
 
 const CardFavorite = ({ favorite }) => {
+
   return (
     <div className='card_favorite'>
       <figure>

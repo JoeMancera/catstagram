@@ -8,7 +8,7 @@ import Favorites from '../components/Favorites';
 import '../assets/styles/App.css';
 
 const App = () => {
-  loginUser;
+  loginUser();
   return (
     <div>
       <Header />

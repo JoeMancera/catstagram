@@ -142,7 +142,7 @@ const Search = () => {
     <>
       <Section key={0} title='Search your Cat'>
         <SearchForm onChange={handleChangeCategory} onClick={handlerClickSearchCategory} />
-        <div className='cat-result'>
+        <div className='cat-result-search'>
           {cats.length > 0 ? cats.map((cat) => <CardSearch cat={cat} key={cat.id} />) : null }
         </div>
       </Section>

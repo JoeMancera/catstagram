@@ -1,40 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Section from './Sections';
 import CardFavorite from './CardFavorite';
 import '../assets/styles/components/CardFavorite.css';
 
-const dummyFavorite = [
-  {
-    'created_at': '2021-07-20T13:49:53.000Z',
-    'id': 2095839,
-    'image': {
-      'id': '9ccXTANkb',
-      'url': 'https://cdn2.thecatapi.com/images/9ccXTANkb.jpg',
-    },
-    'image_id': '9ccXTANkb',
-    'sub_id': 'cats5436-c47b-408c-bff9-eda8159d003e',
-    'user_id': '4',
-  },
-  {
-    'created_at': '2021-07-20T13:49:53.000Z',
-    'id': 2095840,
-    'image': {
-      'id': '9ccXTANkb',
-      'url': 'https://cdn2.thecatapi.com/images/9ccXTANkb.jpg',
-    },
-    'image_id': '9ccXTANkb',
-    'sub_id': 'cats5436-c47b-408c-bff9-eda8159d003e',
-    'user_id': '4',
-  },
-];
+const API = process.env.REACT_APP_CATS_API_URL;
+const API_KEY = process.env.REACT_APP_CATS_API_KEY;
 
 const Favorites = () => {
+  const [favorites, setFavorites] = useState([]);
+
+  useEffect(() => {
+    fetch(`${API}/favourites?sub_id=${localStorage.getItem('catstagram_user')}`, {
+      method: 'GET',
+      headers: {
+        'x-api-key': API_KEY,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => setFavorites(data))
+      .catch((err) => console.log('Error:', err));
+  }, []);
 
   return (
     <>
       <Section key={0} title='Favorites'>
         <div className='cat-result'>
-          { dummyFavorite.length > 0 ? dummyFavorite.map((favoriteItem) => <CardFavorite favorite={favoriteItem} key={favoriteItem.id} />) : <span>Nada para mostrar</span> }
+          { favorites.length > 0 ? favorites.map((favoriteItem) => <CardFavorite favorite={favoriteItem} key={favoriteItem.id} />) : <span>Nada para mostrar</span> }
         </div>
       </Section>
     </>
