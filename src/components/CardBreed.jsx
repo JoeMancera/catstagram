@@ -7,53 +7,50 @@ const API_KEY = process.env.REACT_APP_CATS_API_KEY;
 const CardBreed = ({ breed }) => {
   const [breedOfTheDay, setBreedOfTheDay] = useState([]);
 
-  console.log('the bread', breed);
-  console.log('the bread info', breedOfTheDay);
-
   useEffect(() => {
-    fetch(`${API}/images/search?breed_id=sing`, {
+    fetch(`${API}/breeds`, {
       method: 'GET',
       headers: {
         'x-api-key': API_KEY,
       },
     })
       .then((response) => response.json())
-      .then((data) => setBreedOfTheDay(data))
+      .then((data) => {
+        setBreedOfTheDay(data[Math.floor(Math.random() * data.length)]);
+      })
       .catch((err) => console.log('Error:', err));
   }, []);
 
-  { if (breedOfTheDay.length > 0) {
+  { if (breedOfTheDay.id) {
     return (
-      breedOfTheDay.map((cat) => (
-        <div className='card_Breed' key={cat.id}>
-          <figure>
-            <img className='breed_image' src={cat.url} alt='Cat' srcSet='' />
-            <div className='breed_description'>
-              <h3>{cat.breeds[0].name}</h3>
-              <p>{cat.breeds[0].description}</p>
-              <hr />
-              <div className='breed_desciption-qualities'>
-                <p>{cat.breeds[0].temperament}</p>
-                <p>
-                  <strong>Origin: </strong>
-                  {cat.breeds[0].origin}
-                </p>
-                <p>
-                  <strong>Weight: </strong>
-                  {cat.breeds[0].weight.metric}
-                  Kg
-                </p>
-                <p>
-                  <strong>Life span: </strong>
-                  {cat.breeds[0].life_span}
-                  Years
-                </p>
-                <a className='btn btn-link' target='_blank' href={cat.breeds[0].wikipedia_url} rel='noreferrer'>Go to Wiki</a>
-              </div>
+      <div className='card_Breed' key={breedOfTheDay.id}>
+        <figure>
+          <img className='breed_image' src={breedOfTheDay.image.url} alt='Cat' srcSet='' />
+          <div className='breed_description'>
+            <h3>{breedOfTheDay.name}</h3>
+            <p>{breedOfTheDay.description}</p>
+            <hr />
+            <div className='breed_desciption-qualities'>
+              <p>{breedOfTheDay.temperament}</p>
+              <p>
+                <strong>Origin: </strong>
+                {breedOfTheDay.origin}
+              </p>
+              <p>
+                <strong>Weight: </strong>
+                {breedOfTheDay.weight.metric}
+                Kg
+              </p>
+              <p>
+                <strong>Life span: </strong>
+                {breedOfTheDay.life_span}
+                Years
+              </p>
+              <a className='btn btn-link' target='_blank' href={breedOfTheDay.wikipedia_url} rel='noreferrer'>Go to Wiki</a>
             </div>
-          </figure>
-        </div>
-      ))
+          </div>
+        </figure>
+      </div>
     );
   } return null;
   }

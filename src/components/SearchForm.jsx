@@ -1,6 +1,6 @@
 import React from 'react';
 import searchImg from '../assets/static/Search-button.png';
-import CATEGORIES from '../catCategories';
+import CATEGORIES from '../utils/catCategories';
 import '../assets/styles/components/SearchForm.css';
 
 const SearchForm = ({ onChange, onClick }) => {
