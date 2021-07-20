@@ -1,3 +1,6 @@
+.title{
+  display: none;
+}
 .menu{
   background-color: var(--primary);
   height: 45px;

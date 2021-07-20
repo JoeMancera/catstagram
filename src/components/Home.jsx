@@ -1,17 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import BREEDLIST from '../utils/breedsList';
+import React from 'react';
 import Section from './Sections';
 import CardVote from './CardVote';
 import CardBreed from './CardBreed';
-import '../assets/styles/App.css';
 
 const Home = () => {
-
-  const [randomBreed, setRandomBreed] = useState('');
-
-  useEffect(() => {
-    setRandomBreed(BREEDLIST[Math.floor(Math.random() * BREEDLIST.length)].id);
-  }, []);
 
   return (
     <>
@@ -19,7 +11,7 @@ const Home = () => {
         <CardVote />
       </Section>
       <Section key={1} title='Breed of the day'>
-        <CardBreed key={2} breed={randomBreed} />
+        <CardBreed key={2} />
       </Section>
     </>
   );

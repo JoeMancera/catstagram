@@ -4,7 +4,7 @@ import '../assets/styles/components/CardBreed.css';
 const API = process.env.REACT_APP_CATS_API_URL;
 const API_KEY = process.env.REACT_APP_CATS_API_KEY;
 
-const CardBreed = ({ breed }) => {
+const CardBreed = () => {
   const [breedOfTheDay, setBreedOfTheDay] = useState([]);
 
   useEffect(() => {

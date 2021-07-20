@@ -4,6 +4,7 @@ import loginUser from '../utils/LoginUser';
 import Header from '../components/Header';
 import Home from '../components/Home';
 import Search from '../components/Search';
+import Favorites from '../components/Favorites';
 import '../assets/styles/App.css';
 
 const App = () => {
@@ -15,8 +16,8 @@ const App = () => {
         <Switch>
           <Route exact path='/' component={Home} />
           <Route path='/search' component={Search} />
-          {/* <Route exact path='/favorites' component={favorite} />
-          <Route exact path='/profile' component={profile} />
+          <Route path='/favorites' component={Favorites} />
+          {/* <Route exact path='/profile' component={profile} />
           <Route exact path='/onboard' component={onboard} /> */}
         </Switch>
       </main>
