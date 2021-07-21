@@ -2,26 +2,31 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import loginUser from '../utils/LoginUser';
 import Header from '../components/Header';
-import Home from '../components/Home';
-import Search from '../components/Search';
-import Favorites from '../components/Favorites';
+import Main from '../components/Main';
+import Home from './Home';
+import Search from './Search';
+import Favorites from './Favorites';
+import Profile from './Profile';
+import NotFound from './NotFound';
+
 import '../assets/styles/App.css';
 
 const App = () => {
   loginUser();
   return (
-    <div>
+    <>
       <Header />
-      <main className='main'>
+      <Main>
         <Switch>
           <Route exact path='/' component={Home} />
-          <Route path='/search' component={Search} />
-          <Route path='/favorites' component={Favorites} />
-          {/* <Route exact path='/profile' component={profile} />
-          <Route exact path='/onboard' component={onboard} /> */}
+          <Route exact path='/search' component={Search} />
+          <Route exact path='/favorites' component={Favorites} />
+          <Route exact path='/profile' component={Profile} />
+          <Route component={NotFound} />
+          {/* <Route exact path='/onboard' component={onboard} /> */}
         </Switch>
-      </main>
-    </div>
+      </Main>
+    </>
   );
 };
 

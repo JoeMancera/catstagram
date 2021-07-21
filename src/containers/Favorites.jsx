@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Section from './Sections';
-import CardFavorite from './CardFavorite';
+import Section from '../components/Sections';
+import CardFavorite from '../components/CardFavorite';
 import '../assets/styles/components/CardFavorite.css';
 
 const API = process.env.REACT_APP_CATS_API_URL;

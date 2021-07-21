@@ -1,7 +1,7 @@
 import React from 'react';
-import Section from './Sections';
-import CardVote from './CardVote';
-import CardBreed from './CardBreed';
+import Section from '../components/Sections';
+import CardVote from '../components/CardVote';
+import CardBreed from '../components/CardBreed';
 
 const Home = () => {
 

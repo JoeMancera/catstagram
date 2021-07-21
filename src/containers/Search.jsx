@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Section from './Sections';
-import SearchForm from './SearchForm';
-import CardSearch from './CardSearch';
+import Section from '../components/Sections';
+import SearchForm from '../components/SearchForm';
+import CardSearch from '../components/CardSearch';
 
 const dummycats = [
   {
