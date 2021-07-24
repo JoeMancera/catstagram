@@ -60,7 +60,7 @@ const CardVote = () => {
       ))
     );
   } return (
-    <CardLoading error={error} />
+    <CardLoading error={error} source='cats of the day' />
   );
   }
 };

@@ -67,7 +67,7 @@ const CardBreed = () => {
       </div>
     );
   } return (
-    <CardLoading error={error} />
+    <CardLoading error={error} source='breed' />
   );
   }
 };

@@ -39,7 +39,7 @@ const Favorites = () => {
     <>
       <Section key={0} title='Favorites'>
         <div className='cat-result'>
-          { favorites.length > 0 ? favorites.map((favoriteItem) => <CardFavorite favorite={favoriteItem} key={favoriteItem.id} />) : <CardLoading error={error} /> }
+          { favorites.length > 0 ? favorites.map((favoriteItem) => <CardFavorite favorite={favoriteItem} key={favoriteItem.id} />) : <CardLoading error={error} source='favorites' /> }
         </div>
       </Section>
     </>
