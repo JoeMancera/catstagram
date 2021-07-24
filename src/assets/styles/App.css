@@ -39,6 +39,27 @@ main{
     margin-bottom: 45px;
 }
 
+h1{
+    font: var(--headline1);
+}
+
+h2{
+    font: var(--headline2);
+}
+
+h3{
+    font: var(--headline3);
+}
+
+h4{
+    font: var(--headline4);
+}
+
+h5{
+    font: var(--headline5);
+}
+
+
 .btn{
     font: var(--button);
     height: 28px;

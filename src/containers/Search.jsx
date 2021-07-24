@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Section from '../components/Sections';
+import CardLoading from '../components/CardLoading';
 import SearchForm from '../components/SearchForm';
 import CardSearch from '../components/CardSearch';
 
@@ -127,15 +128,27 @@ const Search = () => {
   };
 
   const handlerClickSearchCategory = () => {
+    const abortController = new AbortController();
     fetch(`${API}/images/search?limit=12&category_ids=${category}`, {
       method: 'GET',
+      signal: abortController.signal,
       headers: {
         'x-api-key': API_KEY,
       },
     })
+      .then((response) => {
+        if (!response.ok) {
+          return Promise.reject(new Error(`Response not ok with status ${response.status}`));
+        }
+        return response;
+      })
       .then((response) => response.json())
       .then((data) => setCats(data))
-      .catch((err) => console.log('Error:', err));
+      .catch((err) => {
+        console.log(err);
+        setError(err);
+        abortController.abort();
+      });
   };
 
   return (
@@ -143,7 +156,7 @@ const Search = () => {
       <Section key={0} title='Search your Cat'>
         <SearchForm onChange={handleChangeCategory} onClick={handlerClickSearchCategory} />
         <div className='cat-result-search'>
-          {cats.length > 0 ? cats.map((cat) => <CardSearch cat={cat} key={cat.id} />) : null }
+          {cats.length > 0 ? cats.map((cat) => <CardSearch cat={cat} key={cat.id} />) : <CardLoading error={error} /> }
         </div>
       </Section>
     </>
