@@ -220,6 +220,12 @@
       "no-void": 0,
       "no-warning-comments": 0,
       "no-with": 2,
+      "import/no-extraneous-dependencies": [
+        "error", 
+        {
+          "devDependencies": true
+        }
+      ],
       "object-curly-newline": 0,
       "object-curly-spacing": [
         2,
