@@ -2,7 +2,7 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import ProviderMock from '../../__mocks__/ProviderMock';
 import CardFavorite from '../../components/CardFavorite';
-import CatFavorietMock from '../../__mocks__/CatFavoriteMock';
+import CatFavoriteMock from '../../__mocks__/CatFavoriteMock';
 
 describe('Test for <CardFavorite /> component', () => {
   test('CardFavorite render test', () => {
@@ -20,7 +20,7 @@ describe('Test for <CardFavorite /> component', () => {
     const wrapper = mount(
       <ProviderMock>
         <CardFavorite
-          favorite={CatFavorietMock}
+          favorite={CatFavoriteMock}
           handleRemoveFavoriteCat={handleRemoveFavoriteCat}
         />
       </ProviderMock>,

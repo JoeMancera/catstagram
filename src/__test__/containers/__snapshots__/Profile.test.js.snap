@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Profile /> Snapshot test Testing UI Componetnt <Profile > 1`] = `
+Array [
+  <div
+    className="head-profile"
+  />,
+  <figure
+    className="figure-profile"
+  >
+    <img
+      alt="Cat with tie"
+      className="image-profile"
+      src="test-file-stub"
+    />
+  </figure>,
+  <section
+    className="profile-user-name"
+  >
+    <h2>
+      Profile
+    </h2>
+    <p>
+      catsxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    </p>
+  </section>,
+]
+`;

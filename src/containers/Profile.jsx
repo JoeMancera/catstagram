@@ -2,7 +2,7 @@ import React from 'react';
 import catProfileImage from '../assets/static/prof-cat.jpg';
 import '../assets/styles/components/Profile.css';
 
-const Profile = () => {
+const Profile = ({ user }) => {
   return (
     <>
       <div className='head-profile' />
@@ -11,7 +11,7 @@ const Profile = () => {
       </figure>
       <section className='profile-user-name'>
         <h2>Profile</h2>
-        <p>{localStorage.getItem('catstagram_user')}</p>
+        <p>{user}</p>
       </section>
     </>
   );

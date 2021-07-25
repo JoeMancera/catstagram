@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> Snapshot test Should match the generated snapshot 1`] = `
+<header
+  className="header"
+>
+  <div
+    className="title"
+  >
+    <h1>
+      <img
+        alt="Catstagram logo"
+        className="hero-image"
+        src="test-file-stub"
+      />
+      Catstagram
+    </h1>
+  </div>
+  <section>
+    <nav
+      aria-label="main-navigation"
+      className="menu"
+    >
+      <ul>
+        <li
+          className="menu-active"
+        >
+          <a
+            className="nav-item"
+            href="/"
+            onClick={[Function]}
+          >
+            <figure>
+              <img
+                alt="Home icon"
+                src="test-file-stub"
+              />
+            </figure>
+          </a>
+        </li>
+        <li>
+          <a
+            className="nav-item"
+            href="/search"
+            onClick={[Function]}
+          >
+            <figure>
+              <img
+                alt="Search icon"
+                src="test-file-stub"
+              />
+            </figure>
+          </a>
+        </li>
+        <li>
+          <a
+            className="nav-item"
+            href="/favorites"
+            onClick={[Function]}
+          >
+            <figure>
+              <img
+                alt="Search icon"
+                src="test-file-stub"
+              />
+            </figure>
+          </a>
+        </li>
+        <li>
+          <a
+            className="nav-item"
+            href="/profile"
+            onClick={[Function]}
+          >
+            <figure>
+              <img
+                alt="User icon"
+                src="test-file-stub"
+              />
+            </figure>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </section>
+</header>
+`;

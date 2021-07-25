@@ -21,7 +21,11 @@ const App = () => {
           <Route exact path='/' component={Home} />
           <Route exact path='/search' component={Search} />
           <Route exact path='/favorites' component={Favorites} />
-          <Route exact path='/profile' component={Profile} />
+          <Route
+            exact
+            path='/profile'
+            render={() => <Profile user={localStorage.getItem('catstagram_user')} />}
+          />
           <Route component={NotFound} />
           {/* <Route exact path='/onboard' component={onboard} /> */}
         </Switch>
