@@ -21,7 +21,7 @@ describe('Test for <CardFavorite /> component', () => {
       <ProviderMock>
         <CardFavorite
           favorite={CatFavoriteMock}
-          handleRemoveFavoriteCat={handleRemoveFavoriteCat}
+          onClick={handleRemoveFavoriteCat}
         />
       </ProviderMock>,
     );

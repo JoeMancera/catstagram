@@ -35,11 +35,33 @@ const Favorites = () => {
       });
   }, []);
 
+  const handleClickRemoveFavorite = (favoriteId) => {
+    const abortController = new AbortController();
+    fetch(`${API}/favourites/${favoriteId}`, {
+      method: 'DELETE',
+      signal: abortController.signal,
+      headers: {
+        'x-api-key': API_KEY,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setError(data);
+        document.getElementById(`${favoriteId}`).style.display = 'none';
+      })
+      .catch((err) => {
+        console.log(err);
+        setError(err);
+        abortController.abort();
+      });
+  };
+
   return (
     <>
       <Section key={0} title='Favorites'>
         <div className='cat-result'>
-          { favorites.length > 0 ? favorites.map((favoriteItem) => <CardFavorite favorite={favoriteItem} key={favoriteItem.id} />) : <CardLoading error={error} source='favorites' /> }
+          { favorites.length >= 0 ? favorites.length === 0 ? <p>Nada para mostrar</p> : favorites.map((favoriteItem) => <CardFavorite favorite={favoriteItem} key={favoriteItem.id} onClick={handleClickRemoveFavorite} />) : <CardLoading error={error} source='favorites' /> }
         </div>
       </Section>
     </>
