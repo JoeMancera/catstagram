@@ -38,5 +38,5 @@ Antes de ejecutar las pruebas del proyecto debes de instalar jest de forma globa
 El proyecto cuenta con tres comandos para ejecutar las pruebas generadas:
 
 1. ```npm test```: Corre las pruebas mostrando el resultado de cada una
-2. ```npm test watch```: Corre las pruebas generadas y muestra el resultado, pero se mantiene escuchando los cambios que se realicen para correrlas nuevamente
-3. ```npm test coverage```: Genera el reporte de coverage generado por jest
+2. ```jest --watch```: Corre las pruebas generadas y muestra el resultado, pero se mantiene escuchando los cambios que se realicen para correrlas nuevamente
+3. ```jest --coverage```: Genera el reporte de coverage generado por jest
