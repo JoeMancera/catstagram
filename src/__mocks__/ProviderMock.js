@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import 'jsdom-global/register';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
