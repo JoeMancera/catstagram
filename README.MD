@@ -3,6 +3,8 @@
 Catstagram es una web app que hace uso de la API [The API Cat](https://thecatapi.com/) para que tengas las imagenes de los gatos más bonitos del mundo.
 
 Puedes guardar tus favoritos, ver la raza del día y votar por los gatos que son tendencia.
+
+Puedes ver el diseño [aquí](https://www.figma.com/file/LoQkoEto5rCyPNcS6K4DWO/Catstagram "Go to Catstagram figma file")
 # 🎲 Tecnologías
 
 ![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=plastic&logo=html5&logoColor=white)
