@@ -12,6 +12,7 @@ Puedes ver el diseño [aquí](https://www.figma.com/file/LoQkoEto5rCyPNcS6K4DWO/
 ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=plastic&logo=JavaScript&logoColor=black)
 ![React](https://img.shields.io/badge/-React-61DAFB?style=plastic&logo=react&logoColor=white)
 ![Jest](https://img.shields.io/badge/-Jest-C21325?style=plastic&logo=Jest&logoColor=white)
+![Webpack](https://badges.aleen42.com/src/webpack.svg)
 
 # 🎛 Configuración
 
@@ -29,3 +30,13 @@ En la raiz del proyecto, crea un archivo `.env` y llenamo con la siguiente estru
   ```
 
 Una vez creado el archivo `.env` puedes ejecutar ```npm run start``` para ejecutarlo localmente. Abrirá la aplicación en el puerto 8080
+
+# 🦆 Testing
+
+Antes de ejecutar las pruebas del proyecto debes de instalar jest de forma global ```npm install jest -g```, si tienes problemas con permisos añade sudo al comando o corre la linea de comandos en modo administrador.
+
+El proyecto cuenta con tres comandos para ejecutar las pruebas generadas:
+
+1. ```npm test```: Corre las pruebas mostrando el resultado de cada una
+2. ```npm test watch```: Corre las pruebas generadas y muestra el resultado, pero se mantiene escuchando los cambios que se realicen para correrlas nuevamente
+3. ```npm test coverage```: Genera el reporte de coverage generado por jest
