@@ -7,10 +7,10 @@ describe('Test for <CardLoading /> component', () => {
   test('CardLoading render test', () => {
     const cardLoading = mount(
       <ProviderMock>
-        <CardLoading error='Test' source='Test' />
+        <CardLoading error={null} source='Test' />
       </ProviderMock>,
     );
 
-    expect(cardLoading.find('p').text()).to.be.eql('Loading Test...');
+    expect(cardLoading.find('p').first().text()).toEqual('Loading Test...');
   });
 });
