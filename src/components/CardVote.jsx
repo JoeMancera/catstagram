@@ -38,6 +38,53 @@ const CardVote = () => {
       });
   }, []);
 
+  const handlerClickVoteButton = (catId, vote) => {
+    const abortController = new AbortController();
+    const dataVote = {
+      'image_id': `${catId}`,
+      'sub_id': `${localStorage.getItem('catstagram_user')}`,
+      'value': vote,
+    };
+    fetch(`${API}/votes`, {
+      method: 'POST',
+      headers: {
+        'x-api-key': API_KEY,
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(dataVote),
+    })
+      .then((response) => response.json())
+      .then((data) => (vote && data.message === 'SUCCESS' ? alert(`${data.message}: You like this cat`) : alert(`${data.message}: You dislike this cat`)))
+      .catch((err) => {
+        console.log(err);
+        setError(err);
+        abortController.abort();
+      });
+  };
+
+  const handlerClickFavoriteButton = (catId) => {
+    const abortController = new AbortController();
+    const dataVote = {
+      'image_id': `${catId}`,
+      'sub_id': `${localStorage.getItem('catstagram_user')}`,
+    };
+    fetch(`${API}/favourites`, {
+      method: 'POST',
+      headers: {
+        'x-api-key': API_KEY,
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(dataVote),
+    })
+      .then((response) => response.json())
+      .then((data) => (data.message === 'SUCCESS' ? alert(`${data.message}: You adore this cat`) : alert(`${data.message}: Mhh!`)))
+      .catch((err) => {
+        console.log(err);
+        setError(err);
+        abortController.abort();
+      });
+  };
+
   { if (catsOfTheDay.length > 0) {
     return (
       catsOfTheDay.map((cat) => (
@@ -45,14 +92,14 @@ const CardVote = () => {
           <figure>
             <img className='cat_image' src={cat.url} alt='Cat' srcSet='' />
             <div className='card_vote_actions'>
-              <button type='button' className='btn-card'>
+              <button type='button' className='btn-card' onClick={() => handlerClickVoteButton(cat.id, 1)}>
                 <img src={likeButton} alt='Like button' />
               </button>
-              <button type='button' className='btn-card'>
-                <img src={dislikeButton} alt='Like button' />
+              <button type='button' className='btn-card' onClick={() => handlerClickVoteButton(cat.id, 0)}>
+                <img src={dislikeButton} alt='Diskile button' />
               </button>
-              <button type='button' className='btn-card'>
-                <img src={favoriteButton} alt='Like button' />
+              <button type='button' className='btn-card' onClick={() => handlerClickFavoriteButton(cat.id)}>
+                <img src={favoriteButton} alt='Favorite button' />
               </button>
             </div>
           </figure>
