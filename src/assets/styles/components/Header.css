@@ -1,6 +1,7 @@
 .title{
   display: none;
 }
+
 .menu{
   background-color: var(--primary);
   height: 45px;
@@ -30,4 +31,33 @@
 
 .menu ul figure{
   margin: 0;
+}
+
+@media screen and (min-width: 540px){
+  .hero-image{
+    -webkit-filter: drop-shadow(0 0 1px #222);
+    filter: drop-shadow(0 0 1px #222);
+    max-width: 32px;
+    margin-top: 3px;
+  }
+
+  .title{
+    display: inline;
+    margin-left: 8px;
+  }
+
+  .title h1{
+    display: none;
+  }
+
+  .menu{
+    justify-content: space-between;
+    display: flex;
+    top: 0;
+  }
+
+  .menu ul{
+    padding-inline-start: unset;
+    min-width: 90%;
+  }
 }

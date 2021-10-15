@@ -37,3 +37,15 @@
 .btn-card:hover{
   filter: brightness(0.8);
 }
+
+@media screen and (min-width: 540px){
+  .cat_image_horizontal{
+    width: 460px;
+    height: 270px;
+  }
+  
+  .cat_image_vertical{
+    width: 460px;
+    height: 490px;
+  }
+}

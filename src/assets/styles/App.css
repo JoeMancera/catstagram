@@ -77,3 +77,9 @@ a, .btn-link{
 a:hover{
     color: var(--primary);
 }
+
+@media screen and (min-width: 540px){
+    main{
+        padding-top: 45px;
+    }
+}

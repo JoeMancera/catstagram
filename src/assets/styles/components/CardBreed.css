@@ -43,3 +43,10 @@
 .breed_desciption-qualities{
   text-align: center;
 }
+
+@media screen and (min-width: 540px){
+  .card_Breed{
+    width: 460px;
+  }
+
+}
