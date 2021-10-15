@@ -6,14 +6,23 @@
   margin-bottom: 20px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+
 .breed_image{
-  width: 349px;
-  height: 250px;
   border-radius: 5px 5px 0px 0px;
   background-color: var(--secondary);
   overflow: hidden;
   object-fit: cover;
   object-position: 50% 55%;
+}
+
+.breed_image_horizontal{
+  width: 349px;
+  height: 250px;
+}
+
+.breed_image_vertical{
+  width: 349px;
+  height: 390px;
 }
 
 .breed_description{

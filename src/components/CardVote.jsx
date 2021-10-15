@@ -12,7 +12,7 @@ const CardVote = ({ onClickVote, onClickFavorite, catsOfTheDay, error }) => {
       catsOfTheDay.map((cat) => (
         <div className='card_vote' key={cat.id}>
           <figure>
-            <img className='cat_image' src={cat.url} alt='Cat' srcSet='' />
+            <img className={cat.width > cat.height ? 'cat_image cat_image_horizontal' : 'cat_image cat_image_vertical'} src={cat.url} alt='Cat' srcSet='' />
             <div className='card_vote_actions'>
               <button id='btn-like-cat' type='button' className='btn-card' onClick={() => onClickVote(cat.id, 1)}>
                 <img src={likeButton} alt='Like button' />

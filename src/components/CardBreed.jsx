@@ -5,6 +5,16 @@ import '../assets/styles/components/CardBreed.css';
 const API = process.env.REACT_APP_CATS_API_URL;
 const API_KEY = process.env.REACT_APP_CATS_API_KEY;
 
+const imageSizeH = {
+  width: 349,
+  height: 250,
+};
+
+const imageSizeV = {
+  width: 349,
+  height: 390,
+};
+
 const CardBreed = () => {
   const [breedOfTheDay, setBreedOfTheDay] = useState([]);
   const [error, setError] = useState('');
@@ -39,7 +49,7 @@ const CardBreed = () => {
     return (
       <div className='card_Breed' key={breedOfTheDay.id}>
         <figure>
-          <img className='breed_image' src={breedOfTheDay.image.url} alt='Cat' srcSet='' />
+          <img className={breedOfTheDay.width > breedOfTheDay.height ? 'breed_image breed_image_horizontal' : 'breed_image breed_image_vertical'} src={breedOfTheDay.image.url} alt='Cat' srcSet='' style={breedOfTheDay.width > breedOfTheDay.height ? imageSizeH : imageSizeV} />
           <div className='breed_description'>
             <h3>{breedOfTheDay.name}</h3>
             <p>{breedOfTheDay.description}</p>
