@@ -22,6 +22,7 @@ const Header = () => (
               <figure>
                 <img src={home} alt='Home icon' />
               </figure>
+              <p className='nav-text'>Home</p>
             </Link>
           </li>
           <li>
@@ -29,6 +30,7 @@ const Header = () => (
               <figure>
                 <img src={search} alt='Search icon' />
               </figure>
+              <p className='nav-text'>Search</p>
             </Link>
           </li>
           <li>
@@ -36,6 +38,7 @@ const Header = () => (
               <figure>
                 <img src={favorite} alt='Search icon' />
               </figure>
+              <p className='nav-text'>Favorites</p>
             </Link>
           </li>
           <li>
@@ -43,6 +46,7 @@ const Header = () => (
               <figure>
                 <img src={profile} alt='User icon' />
               </figure>
+              <p className='nav-text'>Profile</p>
             </Link>
           </li>
         </ul>

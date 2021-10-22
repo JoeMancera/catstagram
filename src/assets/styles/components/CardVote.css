@@ -38,7 +38,7 @@
   filter: brightness(0.8);
 }
 
-@media screen and (min-width: 540px){
+@media only screen and (min-width: 540px){
   .cat_image_horizontal{
     width: 460px;
     height: 270px;
@@ -47,5 +47,17 @@
   .cat_image_vertical{
     width: 460px;
     height: 490px;
+  }
+}
+
+@media only screen and (min-width: 768px){
+  .cat_image_horizontal{
+    width: 500px;
+    height: 350px;
+  }
+  
+  .cat_image_vertical{
+    width: 500px;
+    height: 600px;
   }
 }
