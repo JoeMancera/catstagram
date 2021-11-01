@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import useGetCats from '../hooks/useGetCats';
 import Section from '../components/Sections';
 import CardVote from '../components/CardVote';
 import CardBreed from '../components/CardBreed';
@@ -8,33 +9,7 @@ const API_KEY = process.env.REACT_APP_CATS_API_KEY;
 const NUMBERS_OF_CATS = process.env.REACT_APP_CATS_DAY_NUM;
 
 const Home = () => {
-
-  const [catsOfTheDay, setCatsOfTheDay] = useState([]);
-  const [error, setError] = useState('');
-
-  useEffect(() => {
-    const abortController = new AbortController();
-    fetch(`${API}/images/search?limit=${NUMBERS_OF_CATS}`, {
-      method: 'GET',
-      signal: abortController.signal,
-      headers: {
-        'x-api-key': API_KEY,
-      },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          return Promise.reject(new Error(`Response not ok with status ${response.status}`));
-        }
-        return response;
-      })
-      .then((response) => response.json())
-      .then((data) => setCatsOfTheDay(data))
-      .catch((err) => {
-        console.log(err);
-        setError(err);
-        abortController.abort();
-      });
-  }, []);
+  const { catsOfTheDay, error } = useGetCats(`${API}/images/search?limit=${NUMBERS_OF_CATS}`, API_KEY, NUMBERS_OF_CATS);
 
   const handlerClickVoteButton = (catId, vote) => {
     const abortController = new AbortController();
