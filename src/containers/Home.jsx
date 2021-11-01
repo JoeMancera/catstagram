@@ -30,7 +30,6 @@ const Home = () => {
       .then((data) => (vote && data.message === 'SUCCESS' ? alert(`${data.message}: You like this cat`) : alert(`${data.message}: You dislike this cat`)))
       .catch((err) => {
         console.log(err);
-        setError(err);
         abortController.abort();
       });
   };
@@ -53,7 +52,6 @@ const Home = () => {
       .then((data) => (data.message === 'SUCCESS' ? alert(`${data.message}: You adore this cat`) : alert(`${data.message}: Mhh!`)))
       .catch((err) => {
         console.log(err);
-        setError(err);
         abortController.abort();
       });
   };
