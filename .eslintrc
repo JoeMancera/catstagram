@@ -22,6 +22,7 @@
     "parser": "babel-eslint",
     "plugins": [
       "react",
+      "react-hooks",
       "jsx-a11y",
       "import"
     ],
@@ -254,6 +255,8 @@
       "jsx-a11y/no-noninteractive-element-interactions": 0,
       "jsx-a11y/media-has-caption": 0,
       "react/display-name": 0,
+      "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+      "react-hooks/exhaustive-deps": "warn", // Checks effect dependenciesº
       "react/jsx-boolean-value": 0,
       "react/jsx-closing-bracket-location": 2,
       "react/jsx-curly-spacing": [
