@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Section from '../components/Sections';
 import CardFavorite from '../components/CardFavorite';
 import CardLoading from '../components/CardLoading';
+import { getFavoriteCats, deleteFavoriteCat } from '../utils/favoritesCat';
 import '../assets/styles/components/CardFavorite.css';
 
 const API = process.env.REACT_APP_CATS_API_URL;
@@ -12,49 +13,25 @@ const Favorites = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    const abortController = new AbortController();
-    fetch(`${API}/favourites?sub_id=${localStorage.getItem('catstagram_user')}`, {
-      method: 'GET',
-      signal: abortController.signal,
-      headers: {
-        'x-api-key': API_KEY,
-      },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          return Promise.reject(new Error(`Response not ok with status ${response.status}`));
-        }
-        return response;
-      })
-      .then((response) => response.json())
-      .then((data) => setFavorites(data))
-      .catch((err) => {
-        console.log(err);
-        setError(err);
-        abortController.abort();
-      });
+    async function getFavorites() {
+      const response = await getFavoriteCats(`${API}/favourites?sub_id=`, API_KEY, localStorage.getItem('catstagram_user'));
+      if (response.status === 200) {
+        setFavorites(response.data);
+      } else {
+        setError(response.statusText);
+      }
+    }
+    getFavorites();
   }, []);
 
-  const handleClickRemoveFavorite = (favoriteId) => {
-    const abortController = new AbortController();
-    fetch(`${API}/favourites/${favoriteId}`, {
-      method: 'DELETE',
-      signal: abortController.signal,
-      headers: {
-        'x-api-key': API_KEY,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setError(data);
-        document.getElementById(`${favoriteId}`).style.display = 'none';
-      })
-      .catch((err) => {
-        console.log(err);
-        setError(err);
-        abortController.abort();
-      });
+  const handleClickRemoveFavorite = async (favoriteId) => {
+    const response = await deleteFavoriteCat(`${API}/favourites/`, API_KEY, favoriteId);
+    if (response.status === 200) {
+      const newFavorites = favorites.filter((favorite) => favorite.id !== favoriteId);
+      setFavorites(newFavorites);
+    } else {
+      setError(response.statusText);
+    }
   };
 
   return (

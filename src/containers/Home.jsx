@@ -4,7 +4,7 @@ import Section from '../components/Sections';
 import CardVote from '../components/CardVote';
 import CardBreed from '../components/CardBreed';
 import postVoteCat from '../utils/postVoteCat';
-import addFavoriteCat from '../utils/addFavoriteCat';
+import { addFavoriteCat } from '../utils/favoritesCat';
 
 const API = process.env.REACT_APP_CATS_API_URL;
 const API_KEY = process.env.REACT_APP_CATS_API_KEY;
@@ -35,7 +35,7 @@ const Home = () => {
     };
 
     const response = await addFavoriteCat(`${API}/favourites`, API_KEY, dataFavorite);
-    if (response.message === 'SUCCESS') {
+    if (response.status === 200) {
       alert(`${response.message}: You adore this cat`);
     } else {
       alert(`${response.message}: Mhh!`);
