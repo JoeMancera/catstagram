@@ -8,7 +8,7 @@ const API_KEY = process.env.REACT_APP_CATS_API_KEY;
 
 const CardBreed = () => {
   const { breedOfTheDay, error } = useGetBreed(`${API}/breeds`, API_KEY);
-  console.log(breedOfTheDay);
+
   { if (breedOfTheDay.id) {
     return (
       <div className='card_Breed' key={breedOfTheDay.id}>

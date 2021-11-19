@@ -61,17 +61,21 @@ h5{
 
 .btn{
     font: var(--button);
+    color: var(--black);
     height: 28px;
     border-radius: 5px;
+    border: 1px solid var(--secondary);
+    cursor: pointer;
 }
 
 .btn-primary{
-    background: #F9CDCE;
+    background: var(--secondary);
 }
 
 a, .btn-link{
     text-decoration: none;
     color: var(--brown);
+    cursor: pointer;
 }
 
 a:hover{

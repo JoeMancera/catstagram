@@ -60,4 +60,8 @@
     width: 500px;
     height: 600px;
   }
+
+  .card_vote figure{
+    margin-bottom: 20px;
+  }
 }
