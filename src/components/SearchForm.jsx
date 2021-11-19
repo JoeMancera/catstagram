@@ -19,7 +19,7 @@ const SearchForm = ({ onChange, onClick, isLoading }) => {
           <select onChange={onChange} name='type_img' id='type_img' className='form-control' placeholder='Category'>
             <option key={0} value=''>type</option>
             <option key={1} value='gif'>Animated</option>
-            <option key={2} value='jpg,png'>Still</option>
+            <option key={2} value='jpg,png'>Static</option>
           </select>
         </label>
         <label htmlFor='breed'>
