@@ -8,12 +8,12 @@ const API_KEY = process.env.REACT_APP_CATS_API_KEY;
 
 const CardBreed = () => {
   const { breedOfTheDay, error } = useGetBreed(`${API}/breeds`, API_KEY);
-
+  console.log(breedOfTheDay);
   { if (breedOfTheDay.id) {
     return (
       <div className='card_Breed' key={breedOfTheDay.id}>
         <figure>
-          <img className={breedOfTheDay.width > breedOfTheDay.height ? 'breed_image breed_image_horizontal' : 'breed_image breed_image_vertical'} src={breedOfTheDay.image.url} alt='Cat' srcSet='' />
+          <img className={breedOfTheDay.image.width > breedOfTheDay.image.height ? 'breed_image breed_image_horizontal chong' : 'breed_image breed_image_vertical ching'} src={breedOfTheDay.image.url} alt='Cat' srcSet='' />
           <div className='breed_description'>
             <h3>{breedOfTheDay.name}</h3>
             <p>{breedOfTheDay.description}</p>

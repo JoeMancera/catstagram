@@ -86,9 +86,11 @@ a:hover{
 
 @media only screen and (min-width: 1024px){
     main{
+        max-inline-size: 1158px;
+        margin: 0 auto;
         display: flex;
         flex-direction: row;
-        align-items: center;
-        margin-bottom: 45px;
+        justify-content: space-evenly;
+        align-items: flex-start;
     }
 }

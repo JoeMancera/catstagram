@@ -76,3 +76,19 @@
     height: 600px;
   }
 }
+
+@media only screen and (min-width: 1024px){
+  .card_Breed{
+    width: 490px;
+  }
+
+  .breed_image_horizontal{
+    width: 490px;
+    height: 310px;
+  }
+  
+  .breed_image_vertical{
+    width: 490px;
+    height: 600px;
+  }
+}
