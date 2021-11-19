@@ -1,6 +1,6 @@
 # 😻 Catstagram
 
-Catstagram es una web app que hace uso de la API [The API Cat](https://thecatapi.com/) para que tengas las imagenes de los gatos más bonitos del mundo.
+Catstagram es una web app que hace uso de la API [The API Cat](https://thecatapi.com/) para que tengas las imágenes de los gatos más bonitos del mundo.
 
 Puedes guardar tus favoritos, ver la raza del día y votar por los gatos que son tendencia.
 
@@ -23,9 +23,9 @@ Una vez clonado, debes ejecutar el comando ```npm install``` para instalar los p
 En la raiz del proyecto, crea un archivo `.env` y llenamo con la siguiente estructura, te puedes guiar del .env.example
 
   ```
-  CATS_API_URL=https://api.thecatapi.com/v1
-  CATS_API_KEY=<COLOCAR-LA-KEY-DEL-API>
-  CATS_DAY_NUM=<COLOCAR-NUMERO-DE-GATOS-EN-EL-HOME-POR-DEFECTO-SALDRÁ-UNO>
+  REACT_APP_CATS_API_URL=https://api.thecatapi.com/v1
+REACT_APP_CATS_API_KEY=<COLOCAR-LA-KEY-DEL-API>
+REACT_APP_CATS_DAY_NUM=<COLOCAR-NUMERO-DE-GATOS-EN-EL-HOME-POR-DEFECTO-SALDRÁ-UNO>
 
   ```
 
@@ -40,3 +40,7 @@ El proyecto cuenta con tres comandos para ejecutar las pruebas generadas:
 1. ```npm test```: Corre las pruebas mostrando el resultado de cada una
 2. ```jest --watch```: Corre las pruebas generadas y muestra el resultado, pero se mantiene escuchando los cambios que se realicen para correrlas nuevamente
 3. ```jest --coverage```: Genera el reporte de coverage generado por jest
+
+# 🤓 links of interest
+
+- [Building Your Own Hooks](https://reactjs.org/docs/hooks-custom.html)

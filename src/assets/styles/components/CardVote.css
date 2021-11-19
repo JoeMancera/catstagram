@@ -1,16 +1,26 @@
 .card_vote figure{
   display: inline-block;
   position: relative;
+  margin-bottom: 10px;
 }
+
 .cat_image{
-  width: 349px;
-  height: 250px;
   background-color: var(--secondary);
   overflow: hidden;
   border-radius: 5px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   object-fit: cover;
   object-position: 50% 55%;
+}
+
+.cat_image_horizontal{
+  width: 349px;
+  height: 250px;
+}
+
+.cat_image_vertical{
+  width: 349px;
+  height: 390px;
 }
 
 .card_vote_actions{
@@ -26,4 +36,32 @@
 
 .btn-card:hover{
   filter: brightness(0.8);
+}
+
+@media only screen and (min-width: 540px){
+  .cat_image_horizontal{
+    width: 460px;
+    height: 270px;
+  }
+  
+  .cat_image_vertical{
+    width: 460px;
+    height: 490px;
+  }
+}
+
+@media only screen and (min-width: 768px){
+  .cat_image_horizontal{
+    width: 500px;
+    height: 350px;
+  }
+  
+  .cat_image_vertical{
+    width: 500px;
+    height: 600px;
+  }
+
+  .card_vote figure{
+    margin-bottom: 20px;
+  }
 }

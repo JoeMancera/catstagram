@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import useGetBreed from '../hooks/useGetBreed';
 import CardLoading from './CardLoading';
 import '../assets/styles/components/CardBreed.css';
 
@@ -6,40 +7,13 @@ const API = process.env.REACT_APP_CATS_API_URL;
 const API_KEY = process.env.REACT_APP_CATS_API_KEY;
 
 const CardBreed = () => {
-  const [breedOfTheDay, setBreedOfTheDay] = useState([]);
-  const [error, setError] = useState('');
-
-  useEffect(() => {
-    const abortController = new AbortController();
-    fetch(`${API}/breeds`, {
-      method: 'GET',
-      signal: abortController.signal,
-      headers: {
-        'x-api-key': API_KEY,
-      },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          return Promise.reject(new Error(`Response not ok with status ${response.status}`));
-        }
-        return response;
-      })
-      .then((response) => response.json())
-      .then((data) => {
-        setBreedOfTheDay(data[Math.floor(Math.random() * data.length)]);
-      })
-      .catch((err) => {
-        console.log(err);
-        setError(err);
-        abortController.abort();
-      });
-  }, []);
+  const { breedOfTheDay, error } = useGetBreed(`${API}/breeds`, API_KEY);
 
   { if (breedOfTheDay.id) {
     return (
       <div className='card_Breed' key={breedOfTheDay.id}>
         <figure>
-          <img className='breed_image' src={breedOfTheDay.image.url} alt='Cat' srcSet='' />
+          <img className={breedOfTheDay.image.width > breedOfTheDay.image.height ? 'breed_image breed_image_horizontal chong' : 'breed_image breed_image_vertical ching'} src={breedOfTheDay.image.url} alt='Cat' srcSet='' />
           <div className='breed_description'>
             <h3>{breedOfTheDay.name}</h3>
             <p>{breedOfTheDay.description}</p>

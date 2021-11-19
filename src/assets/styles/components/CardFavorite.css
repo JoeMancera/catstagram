@@ -36,3 +36,21 @@
 .btn-card:hover{
   filter: brightness(0.8);
 }
+
+@media only screen and (min-width: 700px){
+  .cat-result{
+    max-width: 90vw;
+    grid-template-columns: repeat(auto-fill, minmax(313px, 1fr));
+    grid-gap: 10px;
+  }
+
+  .cat_favorite_image{
+    width: 313px;
+    height: 330px;
+  }
+
+  .card_favorite_actions{
+    top: 14px;
+    right: 8px;
+  }
+}
